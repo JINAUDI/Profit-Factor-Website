@@ -1,0 +1,942 @@
+﻿
+
+
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+@section styles
+{
+<style>
+    /* Equal height service boxes */
+    .service1 .row.mt-30 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .service1 .row.mt-30 > [class*="col-"] {
+        display: flex;
+    }
+    .service1-box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 220px;
+    }
+    .service1-box .heading1 {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .service1-box .heading1 p {
+        flex: 1;
+    }
+</style>
+}
+
+@await Html.PartialAsync("~/Views/Shared/Partials/_SearchPopup.cshtml")
+
+<!--=====HEADER START=======-->
+
+<header>
+
+   <div id="vl-header-sticky" class="vl-header-area1 header-tranperent">
+       <div class="container header1-bg">
+           <div class="row align-items-center">
+               <div class="col-lg-2 col-md-6 col-6">
+                   <div class="vl-logo">
+                       <a href=@Url.Action("Index1", "Multi") class="header1-logo-block" style="display: flex; align-items: center; text-decoration: none;">
+                           <img src="~/img/logo/f-icon-white.png" alt="F" style="height: 65px; width: auto; margin-right: 10px;">
+                           <span style="color: #FFFFFF; font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: 2.5px; white-space: nowrap;">PROFIT FACTOR</span>
+                       </a>
+                   </div>
+               </div>
+               <div class="col-lg-7 d-none d-lg-block text-end">
+                   <div class="vl-main-menu">
+                       <nav class="vl-mobile-menu-active">
+                           <ul>
+                               <li>
+                                   <a href=@Url.Action("Index1", "Multi")>Home</a>
+                               </li>
+ 
+                               <li class="has-dropdown"><a href="#">Portfolio <span><i class="fa-regular fa-angle-down"></i></span></a>
+                                 <ul class="sub-menu">
+                                     <li><a href=@Url.Action("Index", "Portfolio")> Portfolio</a></li>
+                                     <li><a href=@Url.Action("Details", "Portfolio")> Portfolio Details</a></li>
+                                 </ul>
+                             </li>
+
+                            <li>
+                                <a href=@Url.Action("Service1", "Service")>Services</a>
+                            </li>
+
+                              <li class="has-dropdown"><a href="#">Pages <span><i class="fa-regular fa-angle-down"></i></span></a>
+                                 <ul class="sub-menu">
+                                   <li><a href=@Url.Action("About", "Pages")>About Us</a></li>
+                                   <li><a href=@Url.Action("Testimonial", "Pages")>Testimonials</a></li>
+                                   <li><a href=@Url.Action("Faq", "Pages")>FAQ's</a></li>
+                                   <li><a href=@Url.Action("Contact", "Pages")>Contact Us</a></li>
+                               </ul>
+                              </li>
+
+                           </ul>
+                       </nav>
+                   </div>
+               </div>
+               <div class="col-lg-3 col-md-6 col-6">
+                  <div class="vl-header1-btns text-end d-none d-lg-block">
+                     <div class="buttons">
+                        <div class="vl-search1">
+                           <button class="search-open-btn"><i class="fa-regular fa-magnifying-glass"></i></button>
+                        </div>
+                        <a href=@Url.Action("Contact", "Pages") class="theme-btn1">Contact Us</a>
+                     </div>
+                  </div>
+                   <div class="vl-header-action-item d-block d-lg-none">
+                       <button type="button" class="vl-offcanvas-toggle">
+                           <i class="fa-duotone fa-solid fa-bars-staggered"></i>
+                       </button>
+                    </div>
+               </div>
+           </div>
+       </div>
+   </div>
+ </header>
+  <!--=====HEADER END =======-->
+ 
+  <!--===== MOBILE HEADER STARTS =======-->
+  <div class="vl-offcanvas vl-header-area1">
+   <div class="vl-offcanvas-wrapper">
+       <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-90">
+           <div class="vl-offcanvas-logo">
+               <a href=@Url.Action("Index1", "Multi") class="header1-logo-block" style="display: flex; align-items: center; text-decoration: none;">
+                   <img src="~/img/logo/f-icon-dark.png" alt="F" style="height: 58px; width: auto; margin-right: 10px;">
+                   <span style="color: #0c2b47; font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: 2px; white-space: nowrap;">PROFIT FACTOR</span>
+               </a>
+           </div>
+           <div class="vl-offcanvas-close">
+              <button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button>
+           </div>
+       </div>
+
+       <div class="vl-offcanvas-menu d-lg-none mb-40">
+           <nav></nav>
+       </div>
+
+       <div class="space20"></div>
+       <div class="vl-footer-contact3 vl-footer-widget-black1 mb-20 sm:ml-0 md:ml-0">
+          <h4>Contact Information</h4>
+          <div class="single-contact-item">
+             <div class="icon">
+                <img src="~/img/icons/footer-contact-icon1.svg" alt="">
+             </div>
+             <div class="text">
+                <a href="mailto:contact.profitfactor@gmail.com">contact.profitfactor@gmail.com</a>
+             </div>
+          </div>
+
+          <div class="single-contact-item">
+             <div class="icon">
+                <img src="~/img/icons/footer-contact-icon2.svg" alt="">
+             </div>
+             <div class="text">
+                <a href="#">A5, 2nd Floor, Kansal's, <br> Patrakar Colony Road, Mansarovar, Jaipur</a>
+             </div>
+          </div>
+
+          <div class="single-contact-item">
+             <div class="icon">
+                <img src="~/img/icons/footer-contact-icon3.svg" alt="">
+             </div>
+             <div class="text">
+                <a href="tel:+916378636017">+91 63786 36017</a>
+             </div>
+          </div>
+
+       </div>
+       <div class="vl-offcanvas-social">
+          <h4>Follow Us</h4>
+           <div class="vl-copyright-social2 text-start">
+             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+             <a href="#"><i class="fa-brands fa-instagram"></i></a>
+             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+   </div>
+</div>
+<div class="vl-offcanvas-overlay"></div>
+<!--===== MOBILE HEADER STARTS =======-->
+
+<main>
+
+    <!--===== HERO AREA START =====-->
+
+    <div class="hero1" style="background: linear-gradient(135deg, #0c2b47 0%, #3b5c78 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="main-heading1">
+                        <span class="sub-title" data-aos="zoom-in-left" data-aos-duration="900"><img src="~/img/icons/span2.svg" alt=""> Performance Marketing Agency </span>
+                        <h1 class="text-anime-style-3">BOOST YOUR ONLINE PRESENCE WITH PROFIT FACTOR</h1>
+                        <p class="mt-16" data-aos="fade-right" data-aos-duration="900">Drive More Traffic, Increase Visibility, and Boost Revenue with Profit Factor. Your brand's single gateway to 21st-century digital success.</p>
+                        <div class="form-area" data-aos="fade-right" data-aos-duration="1100">
+                            <div class="promise-tagline" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 15px 30px; display: inline-block; cursor: default; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <span style="color: #fff; font-size: 16px; font-weight: 500;">Our Only Promise — We Will Move The Numbers.</span>
+                            </div>
+                        </div>
+                        <div class="hero1-counters" data-aos="fade-right" data-aos-duration="1300">
+                            <div class="row">
+                                <div class="col-md-4 col-6">
+                                    <div class="single-counter">
+                                        <h3>52+</h3>
+                                        <p>Projects</p>
+                                        <div class="shape-bg1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 288 288">
+                                                <linearGradient id="imagewave" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
+                                                    <stop class="stop-color2" offset="0%" stop-opacity="1" />
+                                                    <stop class="stop-color1" offset="100%" stop-opacity="1" />
+                                                </linearGradient>
+                                                <path fill="url(#imagewave)" d="">
+                                                    <animate repeatCount="indefinite" attributeName="d" dur="10s"
+                                                             values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                     c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                     c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                     c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+
+
+                                     M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                     c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                     c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                     C48.9,198.6,57.8,191,51,171.3z;
+
+                                     M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                     c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                     c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                     c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z  " />
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-6">
+                                    <div class="single-counter">
+                                        <h3>112+</h3>
+                                        <p>Websites and Applications Done</p>
+                                        <div class="shape-bg1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 288 288">
+                                                <linearGradient id="imagewave2" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
+                                                    <stop class="stop-color2" offset="0%" stop-opacity="1" />
+                                                    <stop class="stop-color1" offset="100%" stop-opacity="1" />
+                                                </linearGradient>
+                                                <path fill="url(#imagewave2)" d="">
+                                                    <animate repeatCount="indefinite" attributeName="d" dur="10s"
+                                                             values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                     c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                     c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                     c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+
+
+                                     M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                     c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                     c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                     C48.9,198.6,57.8,191,51,171.3z;
+
+                                     M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                     c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                     c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                     c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z  " />
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="single-counter">
+                                        <h3>27+</h3>
+                                        <p>Clients</p>
+                                        <div class="shape-bg1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 288 288">
+                                                <linearGradient id="imagewave3" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
+                                                    <stop class="stop-color2" offset="0%" stop-opacity="1" />
+                                                    <stop class="stop-color1" offset="100%" stop-opacity="1" />
+                                                </linearGradient>
+                                                <path fill="url(#imagewave3)" d="">
+                                                    <animate repeatCount="indefinite" attributeName="d" dur="10s"
+                                                             values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                     c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                     c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                     c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+
+
+                                     M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                     c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                     c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                     C48.9,198.6,57.8,191,51,171.3z;
+
+                                     M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                     c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                     c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                     c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z  " />
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero1-images">
+                        <div class="main-images">
+                            <div class="image1 _relative reveal overflow-hidden">
+                                <img src="~/img/hero/hero1-main-image.png" alt="">
+                            </div>
+                            <div class="image-shape1 animate1">
+                                <img src="~/img/shapes/hero1-image-shape1.png" alt="">
+                            </div>
+                            <div class="image-shape2 animate3">
+                                <img src="~/img/shapes/hero1-image-shape2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="sec-element1 animate7">
+                            <img src="~/img/shapes/hero1-shape1.png" alt="">
+                        </div>
+                        <div class="sec-element2 animate8">
+                            <img src="~/img/shapes/hero1-shape2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===== HERO AREA START =====-->
+    <!--===== ABOUT AREA START =====-->
+
+    <div class="about1 sp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="heading1">
+                        <span class="sub-title" data-aos="zoom-in-left" data-aos-duration="900"><img src="~/img/icons/span1.svg" alt=""> ABOUT US</span>
+                        <h2 class="text-anime-style-3">At Profit Factor, we focus on one core principle — measurable performance</h2>
+                        <p class="mt-16" data-aos="fade-right" data-aos-duration="900">We believe that effective marketing is not defined by visibility alone, but by tangible results that drive business growth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8 text-end sm:text-start md:text-start md:mt-30 sm:mt-30">
+                    <div class="button" data-aos="fade-left" data-aos-duration="1000">
+                        <a href=@Url.Action("About", "Pages") class="theme-btn1">Work With Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-30 align-items-end about1-boxs-all">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="about1-box box1 white-heading mt-30" style="background: linear-gradient(135deg, #0c2b47 0%, #3b5c78 100%) !important; background-image: none !important;">
+                        <div class="top-heading">
+                            <h5>Brands Served Across Industries</h5>
+                            <p class="mt-16">Partnering with companies in e-commerce, tech, retail, and services to unlock scalable growth.</p>
+                        </div>
+                        <div class="bottom-heading">
+                            <h3>27+</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="about1-box box2 white-heading mt-30" style="background: linear-gradient(135deg, #0c2b47 0%, #3b5c78 100%) !important; background-image: none !important;">
+                        <div class="top-heading">
+                            <h5>Campaigns Launched & Optimized</h5>
+                            <p class="mt-16">Designing high-performing campaigns that consistently drive traffic, conversions, and ROI.</p>
+                        </div>
+                        <div class="bottom-heading">
+                            <h3>150+</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="about1-box box3 white-heading mt-30" style="background: linear-gradient(135deg, #0c2b47 0%, #3b5c78 100%) !important; background-image: none !important;">
+                        <div class="top-heading">
+                            <h5>Revenue Generated for Clients</h5>
+                            <p class="mt-16">Helping businesses accelerate revenue through intelligent performance marketing systems.</p>
+                        </div>
+                        <div class="bottom-heading">
+                            <h3>90%+ ROI</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--===== ABOUT AREA END =====-->
+    <!--===== SERVICE AREA START =====-->
+
+    <div class="service1 sp sp sec-bg1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="heading1">
+                        <span class="sub-title" data-aos="zoom-in-left" data-aos-duration="900"><img src="~/img/icons/span1.svg" alt=""> OUR SERVICES </span>
+                        <h2 class="text-anime-style-3">Result Driven Performance Marketing Services</h2>
+                        <p class="mt-16" data-aos="fade-right" data-aos-duration="900">At Profit Factor, we provide tailored solutions to all your digital marketing needs designed to boost your online visibility, drive targeted traffic, and maximize conversions.</p>
+                        <div class="" data-aos="fade-right" data-aos-duration="1000">
+                            <a href=@Url.Action("Service1", "Service") class="theme-btn1 mt-30">View All Services</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="overflow-hidden">
+                        <div class="service1-image image-anime reveal md:mt-30 sm:mt-30">
+                            <img src="~/img/service/service1-image.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-30">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+                    <div class="service1-box mt-30" style="min-height: 230px; display: flex; flex-direction: column;">
+                        <div class="">
+                            <div class="num">
+                                <p>1</p>
+                            </div>
+                        </div>
+                        <div class="heading1">
+                            <h5>WhatsApp API Integration</h5>
+                            <p class="mt-16">Streamline Customer Communication With Automated, Secure WhatsApp Messaging Solutions To Improve Response Time, Support, And Conversions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+                    <div class="service1-box mt-30" style="min-height: 230px; display: flex; flex-direction: column;">
+                        <div class="">
+                            <div class="num">
+                                <p>2</p>
+                            </div>
+                        </div>
+                        <div class="heading1">
+                            <h5>Google My Business (GMB)</h5>
+                            <p class="mt-16">Enhance Your Local Visibility With Optimized Google My Business Management Designed To Increase Discoverability, Map Rankings, And Customer Engagement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                    <div class="service1-box mt-30" style="min-height: 230px; display: flex; flex-direction: column;">
+                        <div class="">
+                            <div class="num">
+                                <p>3</p>
+                            </div>
+                        </div>
+                        <div class="heading1">
+                            <h5>Pay-Per-Click (PPC) Advertising</h5>
+                            <p class="mt-16">Maximize your ROI with targeted PPC campaigns designed to attract the right audience customers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="500">
+                    <div class="service1-box mt-30" style="min-height: 230px; display: flex; flex-direction: column;">
+                        <div class="">
+                            <div class="num">
+                                <p>4</p>
+                            </div>
+                        </div>
+                        <div class="heading1">
+                            <h5>Social Media Marketing</h5>
+                            <p class="mt-16">Build a strong social media presence to connect with your audience, awareness, engagement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+                    <div class="service1-box mt-30" style="min-height: 230px; display: flex; flex-direction: column;">
+                        <div class="">
+                            <div class="num">
+                                <p>5</p>
+                            </div>
+                        </div>
+                        <div class="heading1">
+                            <h5>Website Design & Development</h5>
+                            <p class="mt-16">Create a user-friendly, responsive website that not only looks great but also performs exceptionally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="500">
+                    <div class="service1-box mt-30" style="min-height: 230px; display: flex; flex-direction: column;">
+                        <div class="">
+                            <div class="num">
+                                <p>6</p>
+                            </div>
+                        </div>
+                        <div class="heading1">
+                            <h5>Content Marketing</h5>
+                            <p class="mt-16">Engage your audience with high-quality, relevant content that drives traffic and fosters customer loyalty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===== SERVICE AREA END =====-->
+    <!--===== CHOOSE AREA START =====-->
+
+    <div class="choose1 sp">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="heading1">
+                        <span class="sub-title" data-aos="zoom-in-left" data-aos-duration="900"><img src="~/img/icons/span1.svg" alt="">WHY CHOOSE US </span>
+                        <h2 class="text-anime-style-3">Why Choose Profit Factor</h2>
+                    </div>
+                </div>
+                <div class="col-lg-7 text-end sm:text-start md:text-start">
+                    <div class="button" data-aos="fade-left" data-aos-duration="800">
+                        <a href=@Url.Action("About", "Pages") class="theme-btn1 mt-30">Work With Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-30">
+                <div class="col-lg-6">
+                    <div class="choose1-images mt-30">
+                        <div class="image image-anime reveal">
+                            <img class="w-full" src="~/img/others/choose1-image.png" alt="">
+                        </div>
+                        <div class="shape animate3">
+                            <img src="~/img/shapes/choose1-shape.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="choose1-box-all">
+                        <div class="row">
+                            <div class="col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+
+                                <div class="choose1-box mt-30">
+                                    <div class="">
+                                        <div class="num">
+                                            <p>1</p>
+                                        </div>
+                                    </div>
+                                    <div class="heading1">
+                                        <h5>A Results-Oriented Mindset</h5>
+                                        <p class="mt-12">We go beyond impressions and engagement metrics. Every strategy is designed to create measurable outcomes.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="300">
+                                <div class="choose1-box mt-30">
+                                    <div class="">
+                                        <div class="num">
+                                            <p>2</p>
+                                        </div>
+                                    </div>
+                                    <div class="heading1">
+                                        <h5>A Team that Understands the Modern Market</h5>
+                                        <p class="mt-12">As a new-generation agency, we bring fresh perspectives backed by deep industry understanding.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                                <div class="choose1-box mt-30">
+                                    <div class="">
+                                        <div class="num">
+                                            <p>3</p>
+                                        </div>
+                                    </div>
+                                    <div class="heading1">
+                                        <h5>Long-Term Partnerships</h5>
+                                        <p class="mt-12">We grow with our clients by continuously optimizing strategies and adapting to evolving market dynamics.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===== CHOOSE AREA END =====-->
+    <!--===== WORKS AREA START =====-->
+
+    <div class="work1 sp sec-bg1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="heading1">
+                        <span class="sub-title" data-aos="zoom-in-left" data-aos-duration="900"><img src="~/img/icons/span1.svg" alt=""> OUR WORK PROCESS</span>
+                        <h2 class="text-anime-style-3">Our Proven Process for Delivering Success</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-end sm:text-start md:text-start">
+                    <div class="button" data-aos="fade-right" data-aos-duration="900">
+                        <a href=@Url.Action("About", "Pages") class="theme-btn1 mt-30">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 m-auto">
+                    <div class="work1-slider-all _relative" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+                        <div class="work1-slider">
+                            <div class="work1-single-slider">
+                                <div class="images-all">
+                                    <div class="shape animate1">
+                                        <img src="~/img/shapes/work1-shape.png" alt="">
+                                    </div>
+                                    <div class="image">
+                                        <img src="~/img/others/work1-image1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="content-area heading1">
+                                    <div class="num">
+                                        <p>1</p>
+                                    </div>
+                                    <h3 class="mt-16">Insight-Driven Research</h3>
+                                    <p class="mt-16">Unlock Actionable Insights Through Deep-Dive Market Analysis, Audience Profiling, And Competitor Intelligence To Establish A Strong Strategic Foundation For Your Campaigns.</p>
+                                    <div class="work1-list">
+                                        <ul>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Comprehensive Audience & Market Research</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Competitor And Trend Analysis</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Data-Backed Opportunity Identification</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="work1-single-slider">
+                                <div class="images-all">
+                                    <div class="shape animate1">
+                                        <img src="~/img/shapes/work1-shape.png" alt="">
+                                    </div>
+                                    <div class="image">
+                                        <img src="~/img/others/work1-image2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="content-area heading1">
+                                    <div class="num">
+                                        <p>2</p>
+                                    </div>
+                                    <h3 class="mt-16">Strategic Blueprint Development</h3>
+                                    <p class="mt-16">Transform Insights Into A High-Impact Marketing Strategy Built To Maximize ROI, Strengthen Brand Presence, And Align Every Action With Your Business Objectives.</p>
+                                    <div class="work1-list">
+                                        <ul>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Tailored Campaign Roadmaps</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Performance-Focused Content Strategy</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Creative & Messaging Frameworks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="work1-single-slider">
+                                <div class="images-all">
+                                    <div class="shape animate1">
+                                        <img src="~/img/shapes/work1-shape.png" alt="">
+                                    </div>
+                                    <div class="image">
+                                        <img src="~/img/others/work1-image1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="content-area heading1">
+                                    <div class="num">
+                                        <p>3</p>
+                                    </div>
+                                    <h3 class="mt-16">Precision Implementation</h3>
+                                    <p class="mt-16">Execute Campaigns With Laser-Focused Accuracy Across All Channels, Leveraging Advanced Tools, Creative Excellence, And Best-Practice Methodologies For Peak Performance.</p>
+                                    <div class="work1-list">
+                                        <ul>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>High-Quality Ad Creation & Deployment</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Audience Targeting through Content & Funnel Execution</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Real-Time Optimization Setup</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="work1-single-slider">
+                                <div class="images-all">
+                                    <div class="shape animate1">
+                                        <img src="~/img/shapes/work1-shape.png" alt="">
+                                    </div>
+                                    <div class="image">
+                                        <img src="~/img/others/work1-image2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="content-area heading1">
+                                    <div class="num">
+                                        <p>4</p>
+                                    </div>
+                                    <h3 class="mt-16">Transparent Performance Reporting</h3>
+                                    <p class="mt-16">Access Clear, Insightful Reports That Reveal Campaign Progress, Key Metrics, And Actionable Recommendations To Drive Continuous Growth And Smarter Decision-Making.</p>
+                                    <div class="work1-list">
+                                        <ul>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Easy-To-Understand Performance Dashboards</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Deep Analytics With ROI-Focused Insights</li>
+                                            <li><span class="check"><i class="fa-solid fa-check"></i></span>Monthly Strategic Review & Recommendations</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="work1-slider-btns">
+                            <button class="work1-prev-arrow"><i class="fa-solid fa-angle-left"></i></button>
+                            <button class="work1-next-arrow"><i class="fa-solid fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===== WORKS AREA END =====-->
+    <!--===== TESTIMONIAL AREA START =====-->
+
+    <div class="tes1 sp">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="heading1">
+                        <span class="sub-title" data-aos="zoom-in-left" data-aos-duration="900"><img src="~/img/icons/span1.svg" alt=""> TESTIMONIALS </span>
+                        <h2 class="text-anime-style-3">Proven Success Through Our Clients' Words</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-end sm:text-start md:text-start">
+                    <div class="button" data-aos="fade-left" data-aos-duration="900">
+                        <a href="#" class="theme-btn1 mt-30">View All Review</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mt-30">
+                    <div class="" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+                        <div class="tes1-single-items mt-30 space-right">
+                            <div class="">
+                                <div class="image">
+                                    <img src="~/img/testimonial/tes1-smoll-image1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="author-info">
+                                    <a href="#">Sarah M</a>
+                                    <span>E-commerce Owner</span>
+                                </div>
+                                <p>Profit Factor transformed our online presence. We saw a 300% increase in website months!</p>
+                            </div>
+                            <img src="~/img/icons/quote.svg" alt="" class="quote">
+                        </div>
+                    </div>
+
+                    <div class="" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+                        <div class="tes1-single-items mt-30 hover space-left">
+                            <div class="">
+                                <div class="image">
+                                    <img src="~/img/testimonial/tes1-smoll-image2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="author-info">
+                                    <a href="#">John Doe</a>
+                                    <span>Marketing Manager</span>
+                                </div>
+                                <p>team is proactive, professional, results-driven. Highly recommend their services!</p>
+                            </div>
+                            <img src="~/img/icons/quote.svg" alt="" class="quote">
+                        </div>
+                    </div>
+
+                    <div class="" data-aos="fade-right" data-aos-duration="900" data-aos-delay="400">
+                        <div class="tes1-single-items mt-30 space-right">
+                            <div class="">
+                                <div class="image">
+                                    <img src="~/img/testimonial/tes1-smoll-image3.png" alt="">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="author-info">
+                                    <a href="#">Alex Hales</a>
+                                    <span>E-commerce Owner</span>
+                                </div>
+                                <p>Thanks to Profit Factor, our revenue doubled last year. They're truly the best in the industry.</p>
+                            </div>
+                            <img src="~/img/icons/quote.svg" alt="" class="quote">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="tes1-images md:mt-30 sm:mt-30">
+                        <div class="image reveal _relative overflow-hidden">
+                            <img src="~/img/testimonial/tes1-big-image.png" alt="">
+                        </div>
+                        <div class="shape animate3">
+                            <img src="~/img/shapes/tes1-shape.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--===== TESTIMONIAL AREA END =====-->
+    
+
+</main>
+
+<footer class="vl-footer-area1" style="background-image: url(/img/bg/footer1-bg.jpg);">
+
+   <!-- cta area start -->
+   <div class="cta1">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 m-auto text-center">
+               <div class="white-heading">
+                  <h2>Ready To Grow Your Business With Profit Factor</h2>
+                  <p class="mt-16">Let us help you unlock your business's full potential. With tailored SEO strategies and proven digital marketing techniques, we�ll drive traffic, improve conversions, and elevate your brand online. Don�t wait�success starts today!</p>
+                  <div class="cta1-form">
+                     <input type="email" placeholder="Enter Your Email">
+                     <div class="button">
+                        <button type="submit" class="theme-btn1">
+                           Subscribe
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- cta area end -->
+
+   <!-- footer area start -->
+   <div class="footer-bottom-content">
+      <div class="container">
+         <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+               <div class="vl-footer-widget-white vl-footer1-logo-area mr-50 mb-50">
+                  <div class="vl-footer-logo black-logo">
+                     <a href=@Url.Action("Index1", "Multi") style="display: flex; align-items: center; text-decoration: none;">
+                         <img src="~/img/logo/f-icon-white.png" alt="F" style="height: 42px; width: auto; margin-right: 10px;">
+                         <span style="color: #FFFFFF; font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: 2.5px; white-space: nowrap;">PROFIT FACTOR</span>
+                     </a>
+                  </div>
+                  <div class="vl-footer-text white-heading mt-16">
+                     <p class="mt-16">Profit Factor is a results-driven performance marketing agency dedicated to helping businesses thrive in the digital landscape. </p>
+                  </div>
+                  <div class="vl-footer-social1 text-start mt-20">
+                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                     <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2  col-md-6 col-6">
+               <div class="vl-footer-widget-white mb-50 ml-20 md:ml-30 sm:ml-0">
+                  <h4>Quick Links</h4>
+                  <div class="vl-footer-list">
+                     <ul>
+                        <li><a href=@Url.Action("Index1", "Multi")>Home</a></li>
+                        <li><a href=@Url.Action("About", "Pages")>About Us</a></li>
+                        <li><a href="domain">Services</a></li>
+                        
+                        <li><a href=@Url.Action("Contact", "Pages")>Contact Us</a></li>
+                        <li><a href=@Url.Action("Testimonial", "Pages")>Testimonails</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-6">
+               <div class="vl-footer-widget-white mb-50 ml-70 md:ml-0 sm:ml-0">
+                  <h4>Category List</h4>
+                  <div class="vl-footer-list">
+                     <ul>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">SEO Marketing</a></li>
+                        <li><a href="#">Startup Agency</a></li>
+                        <li><a href="#">Advertising Agency</a></li>
+                        <li><a href="#">Social Media Agency</a></li>
+                        <li><a href="#">Web Design Agency</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-lg-3 col-md-8 col-sm-6">
+               <div class="vl-footer-contact1 vl-footer-widget-white mb-50 sm:ml-0 md:ml-0">
+                  <h4>Contact Information</h4>
+                  <div class="single-contact-item">
+                     <div class="icon">
+                        <img src="~/img/icons/footer-contact-icon1.svg" alt="">
+                     </div>
+                     <div class="text">
+                        <a href="mailto:contact.profitfactor@gmail.com">contact.profitfactor@gmail.com</a>
+                     </div>
+                  </div>
+
+                  <div class="single-contact-item">
+                     <div class="icon">
+                        <img src="~/img/icons/footer-contact-icon2.svg" alt="">
+                     </div>
+                     <div class="text">
+                        <a href="#">A5, 2nd Floor, Kansal's, <br> Patrakar Colony Road, Mansarovar, Jaipur</a>
+                     </div>
+                  </div>
+
+                  <div class="single-contact-item">
+                     <div class="icon">
+                        <img src="~/img/icons/footer-contact-icon3.svg" alt="">
+                     </div>
+                     <div class="text">
+                        <a href="tel:+916378636017">+91 63786 36017</a>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- footer area end -->
+
+   <!-- copy-right area start -->
+      <div class="container">
+         <div class="row vl-copyright1 _dv-top align-items-center">
+            <div class="col-lg-6">
+               <div class="copyright-text left-side">
+                  <p>?Copyright 2025 Profit Factor . All rights reserved</p>
+               </div>
+            </div>
+            <div class="col-lg-6">
+               <div class="copyright-text right-side text-end sm:text-start md:text-start">
+                  <a href="#">Terms & Conditions</a>
+                  <a href="#" class="add-before"> Privacy Policy </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   <!-- copy-right area end -->
+
+</footer>
+
+@section scripts
+{
+
+}

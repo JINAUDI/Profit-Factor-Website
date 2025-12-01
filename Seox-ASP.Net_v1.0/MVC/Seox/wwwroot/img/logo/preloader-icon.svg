@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Gothic F for preloader -->
+  <text x="20" y="34" font-family="'UnifrakturMaguntia', 'Old English Text MT', cursive" font-size="40" fill="#0c2b47" text-anchor="middle">F</text>
+</svg>
