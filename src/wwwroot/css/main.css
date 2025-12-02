@@ -64,6 +64,7 @@ CSS LIST
 ::::::::::::::::::::::::::
 */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
 body {
   font-size: var(--f-fs-font-16);
   font-family: var(--f-ff-font-1);
@@ -22709,4 +22710,184 @@ a:focus {
 ::::::::::::::::::::::::::
  FEATURES AREA CSS
 ::::::::::::::::::::::::::
-*//*# sourceMappingURL=main.css.map */
+*/
+
+/*
+::::::::::::::::::::::::::
+ HEADER BRANDING STYLES
+ Global Logo Styling for All Pages
+::::::::::::::::::::::::::
+*/
+
+/* ===== BASE LOGO STYLES (All Headers) ===== */
+.vl-logo .header1-logo-block {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  gap: 14px !important;
+}
+
+.vl-logo .header1-logo-block img {
+  height: 88px !important;
+  width: auto !important;
+  max-height: 95px !important;
+  margin-right: 0 !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+.vl-logo .header1-logo-block span {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.5px !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+}
+
+/* ===== HOME PAGE ONLY - LARGER LOGO (Detected by hero1 presence) ===== */
+.hero1 ~ .vl-logo .header1-logo-block img,
+body:has(.hero1) .vl-logo .header1-logo-block img {
+  height: 105px !important;
+  max-height: 115px !important;
+}
+
+/* Alternative home page detection via header area 1 on first page */
+.vl-header-area1:not(.sticky) .vl-logo .header1-logo-block img {
+  height: 100px !important;
+  max-height: 110px !important;
+}
+
+/* ===== HEADER AREA 1 (Dark Background - White Logo) ===== */
+.vl-header-area1 .vl-logo .header1-logo-block span {
+  color: #FFFFFF !important;
+}
+
+/* ===== HEADER AREA 2 (Light Background - Dark Logo) ===== */
+.vl-header-area2 .vl-logo .header1-logo-block span {
+  color: #0c0c0c !important;
+}
+
+/* ===== HEADER AREA 3+ (Ensure Dark Text for Light Pages) ===== */
+.vl-header-area3 .vl-logo .header1-logo-block span,
+.vl-header-area4 .vl-logo .header1-logo-block span,
+.vl-header-area5 .vl-logo .header1-logo-block span {
+  color: #0c0c0c !important;
+}
+
+/* ===== MOBILE OFFCANVAS LOGO (Always Dark) ===== */
+.vl-offcanvas-logo .header1-logo-block {
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  gap: 12px !important;
+}
+
+.vl-offcanvas-logo .header1-logo-block img {
+  height: 60px !important;
+  width: auto !important;
+  margin-right: 0 !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+.vl-offcanvas-logo .header1-logo-block span {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  white-space: nowrap !important;
+  color: #0c0c0c !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+}
+
+/* ===== STICKY HEADER ADJUSTMENTS ===== */
+.vl-header-area1.sticky .vl-logo .header1-logo-block img,
+.vl-header-area2.sticky .vl-logo .header1-logo-block img {
+  height: 70px !important;
+  max-height: 75px !important;
+}
+
+.vl-header-area1.sticky .vl-logo .header1-logo-block span,
+.vl-header-area2.sticky .vl-logo .header1-logo-block span {
+  font-size: 26px !important;
+}
+
+/* ===== TABLET RESPONSIVE (768px - 991px) ===== */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .vl-logo .header1-logo-block img {
+    height: 70px !important;
+    max-height: 75px !important;
+  }
+  
+  .vl-header-area1:not(.sticky) .vl-logo .header1-logo-block img {
+    height: 80px !important;
+    max-height: 85px !important;
+  }
+  
+  .vl-logo .header1-logo-block span {
+    font-size: 26px !important;
+    letter-spacing: 2px !important;
+  }
+  
+  .vl-logo .header1-logo-block {
+    gap: 12px !important;
+  }
+}
+
+/* ===== MOBILE RESPONSIVE (max-width: 767px) ===== */
+@media (max-width: 767px) {
+  .vl-logo .header1-logo-block img {
+    height: 58px !important;
+    max-height: 65px !important;
+  }
+  
+  .vl-header-area1:not(.sticky) .vl-logo .header1-logo-block img {
+    height: 65px !important;
+    max-height: 70px !important;
+  }
+  
+  .vl-logo .header1-logo-block span {
+    font-size: 22px !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 600 !important;
+  }
+  
+  .vl-logo .header1-logo-block {
+    gap: 10px !important;
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .vl-logo .header1-logo-block img {
+    height: 55px !important;
+    max-height: 60px !important;
+  }
+  
+  .vl-header-area1:not(.sticky) .vl-logo .header1-logo-block img {
+    height: 60px !important;
+    max-height: 65px !important;
+  }
+  
+  .vl-logo .header1-logo-block span {
+    font-size: 20px !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .vl-logo .header1-logo-block {
+    gap: 8px !important;
+  }
+  
+  .vl-offcanvas-logo .header1-logo-block img {
+    height: 52px !important;
+  }
+  
+  .vl-offcanvas-logo .header1-logo-block span {
+    font-size: 20px !important;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
