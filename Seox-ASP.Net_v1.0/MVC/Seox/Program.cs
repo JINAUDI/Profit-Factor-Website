@@ -13,16 +13,19 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// Only use HTTPS redirection in development (Render handles SSL termination)
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseRouting();
+app.UseStaticFiles();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Multi}/{action=Index1}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Multi}/{action=Index1}/{id?}");
 
 app.Run();
