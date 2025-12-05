@@ -22890,4 +22890,56 @@ body:has(.hero1) .vl-logo .header1-logo-block img {
   }
 }
 
+/* ===== MOBILE LOGO ENHANCEMENT (max-width: 767px) ===== */
+@media (max-width: 767px) {
+  /* Main header logo - enlarged for mobile */
+  .vl-logo .header1-logo-block img {
+    width: 54px !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  .vl-logo .header1-logo-block span {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .vl-logo .header1-logo-block {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding-top: 5px !important;
+  }
+  
+  /* Header area adjustments for blue curve alignment */
+  .vl-header-area2 {
+    padding-top: 8px !important;
+  }
+  
+  .vl-header-area2 .container {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+  
+  /* Offcanvas/sidebar logo - also enlarged */
+  .vl-offcanvas-logo .header1-logo-block img {
+    width: 50px !important;
+    height: auto !important;
+  }
+  
+  .vl-offcanvas-logo .header1-logo-block span {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .vl-offcanvas-logo .header1-logo-block {
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
